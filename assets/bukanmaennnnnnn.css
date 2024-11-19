@@ -1,0 +1,309 @@
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 9999; /* Pastikan overlay berada di atas konten lain */
+  }
+
+  /* Typing animation */
+  #overlay-typing {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #fff;
+    animation: blink-cursor 0.75s step-end infinite;
+  }
+  /* Blinking cursor */
+  @keyframes blink-cursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #fff; }
+  }
+  /* end overlay */
+
+  /* navbar */
+  /* animasi slide down navbar */
+  .slide-down {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+  }
+
+  .slide-down.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  /* end navbar */
+
+
+  /* Hero Section */
+  /* Bounce animation for the image */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  /* Apply bounce effect */
+  .bounce {
+    animation: bounce 5s infinite;
+  }
+
+  /* Typing effect for text */
+  #typing-text {
+    font-size: clamp(1rem, 2vw, 2.5rem);
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    border-right: 3px solid #fff;
+    animation: blink-cursor 0.75s step-end infinite;
+  }
+
+  /* Blinking cursor animation */
+  @keyframes blink-cursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #fff; }
+  }
+  /* end Hero Section */
+
+
+  /* About me */
+  /* Animasi Zoom untuk teks */
+  @keyframes zoom {
+    0%, 100% {
+      transform: scale(0.5); /* Skala normal */
+    }
+    50% {
+      transform: scale(1); /* Zoom in (lebih besar) */
+    }
+  }
+
+  /* Gradient color text animation */
+  @keyframes gradient-animation {
+    0% { background-position: 0% 100%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Terapkan animasi zoom dan gradien pada teks About Me */
+  .zoom-text {
+    font-size: 2rem; /* Ukuran teks */
+    font-weight: bold; /* Menambah ketebalan teks */
+    text-align: center; /* Posisikan teks di tengah */
+    background: linear-gradient(to right, #178143, #000000); /* Warna biru muda ke biru tua */
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-animation 3s infinite, zoom 2s ease-in-out infinite; /* Kedua animasi berjalan bersamaan */
+  }
+  .zoom-text1 {
+    font-size: 2rem; /* Ukuran teks */
+    font-weight: bold; /* Menambah ketebalan teks */
+    text-align: center; /* Posisikan teks di tengah */
+    background: linear-gradient(to right, #fefefe, #6f6f6f, #ffffff); /* Warna biru muda ke biru tua */
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-animation 3s infinite, zoom 2s ease-in-out infinite; /* Kedua animasi berjalan bersamaan */
+  }
+  /* Gradient color text animation */
+  .animated-skill {
+    background: linear-gradient(90deg, #dc2626, #9a7900, #0aa856, #6b6bff, #de6bff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-animation 3s linear infinite;
+  }
+
+  /* animasi teks stti */
+  .stti {
+    background: linear-gradient(to right, #43b3e4, #1475a2, #43b3e4, #004469); /* Warna biru muda ke biru tua */
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-animation 3s infinite; /* Mengatur durasi animasi */
+  }
+
+  /* Efek animasi warna berjalan */
+  @keyframes gradient-animation {
+    0% { background-position: 0% 100%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /*end about me*/
+  /*galery*/
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-item img {
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.1);
+    filter: blur(4px);
+  }
+  .gallery-item .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, text-shadow 0.3s ease;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 
+      0 0 5px rgba(0, 0, 0, 0.7),
+      0 0 10px rgba(0, 0, 0, 0.7);
+  }
+  .gallery-item:hover .title {
+    opacity: 1;
+  }
+
+  /* Lightbox styles */
+  .lightbox {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+  .lightbox .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+  /*end galery*/
+
+  /*Expertise*/
+  .logo {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  .logo img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  /* Adjust sizes for desktop */
+  @media (min-width: 1024px) {
+    /* Small logos */
+    .small-logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 8px; /* Add a small space between small logos and large logos */
+    }
+    
+    /* Large logos - 18:9 aspect ratio */
+    .large-logo {
+      width: 255px;
+      height: 80px;
+      margin-top: 8px; /* Add a small space between small logos and large logos */
+    }
+
+    /* Grid gap adjustments for better spacing */
+    .grid-cols-5 {
+      gap: 3px;
+    }
+    .grid-cols-2 {
+      gap: 3px;
+    }
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 1024px) {
+    /* Small logos */
+    .small-logo {
+      width: 60px; /* Adjust the size of small logos */
+      height: 60px;
+      margin-bottom: 6px; /* Add space between small logos and large logos */
+    }
+
+    /* Large logos (18:9 aspect ratio) */
+    .large-logo {
+      width: 152px; /* Adjust the width of large logos */
+      height: 50px; /* Maintain the 18:9 aspect ratio */
+      margin-top: 12px; /* Add space between small logos and large logos */
+    }
+
+    /* Adjust grid layout for small screens */
+    .grid-cols-5 {
+      gap: 2px; /* Reduce gap between small logos */
+    }
+
+    .grid-cols-2 {
+      gap: 5px; /* Increase gap between large logos */
+    }
+  }
+
+  /* Animation for 1:1 logos (Fast enlarge and fast rotate like motor wheel) */
+  @keyframes fastRotate {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    100% {
+      transform: scale(1.2) rotate(3600deg); /* 3600deg to make it rotate quickly 10 full rotations */
+    }
+  }
+
+/* Animation for 16:9 logos (Bounce effect) */
+@keyframes bounce {
+0% {
+  transform: translateY(0);
+}
+25% {
+  transform: translateY(-10px);
+}
+50% {
+  transform: translateY(5px);
+}
+75% {
+  transform: translateY(-5px);
+}
+100% {
+  transform: translateY(0);
+}
+}
+
+/* Apply animation to clicked logos */
+.fast-rotate {
+animation: fastRotate 5s linear forwards;
+}
+
+.bouncing {
+animation: bounce 2s ease-in-out infinite; /* Mengubah durasi dari 5s menjadi 2s */
+}
